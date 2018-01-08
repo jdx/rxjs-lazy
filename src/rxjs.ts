@@ -59,7 +59,7 @@ function load (name: string) {
   return getOutput(m, name)
 }
 
-export default new Proxy({}, {
+const rxjs = new Proxy({}, {
   get (cache: any, name: string) {
     if (typeof name !== 'string') return cache[name]
     return cache[name] || (cache[name] = load(name))
@@ -142,18 +142,20 @@ export default new Proxy({}, {
   readonly zip: typeof operators.zip
 }
 
-import {ThrottleConfig} from 'rxjs/operators/throttle'
-import {GroupedObservable} from 'rxjs/operators/groupBy'
-import {IScheduler} from 'rxjs/Scheduler'
-import {Subject} from 'rxjs/Subject'
-import {NextObserver, ErrorObserver, CompletionObserver} from 'rxjs/Observer'
-import {Observable, Subscribable} from 'rxjs/Observable'
 import {ConnectableObservable} from 'rxjs/observable/ConnectableObservable'
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable'
+import {GroupedObservable} from 'rxjs/operators/groupBy'
+import {IScheduler} from 'rxjs/Scheduler'
+import {Observable, Subscribable} from 'rxjs/Observable'
+import {CompletionObserver, Observer, NextObserver, ErrorObserver} from 'rxjs/Observer'
+import {Subject} from 'rxjs/Subject'
+import {ThrottleConfig} from 'rxjs/operators/throttle'
 
 export {
+  CompletionObserver,
   ConnectableObservable,
   ErrorObservable,
+  ErrorObserver,
   GroupedObservable,
   IScheduler,
   NextObserver,
@@ -162,3 +164,5 @@ export {
   Subscribable,
   ThrottleConfig,
 }
+
+export { rxjs }
