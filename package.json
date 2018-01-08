@@ -1,0 +1,27 @@
+{
+  "name": "rxjs-lazy",
+  "description": "lazy-loading rxjs",
+  "version": "0.0.0",
+  "author": "Jeff Dickey",
+  "devDependencies": {
+    "@cli-engine/util": "^1.1.4",
+    "@heroku-cli/tslint": "^1.1.2",
+    "@types/node": "^8.5.7",
+    "prettier": "^1.9.2",
+    "tslint": "^5.8.0"
+  },
+  "files": [
+    "lib"
+  ],
+  "license": "MIT",
+  "main": "lib/rxjs.js",
+  "repository": "https://github.com/jdxcode/rxjs-lazy",
+  "scripts": {
+    "test": "cli-engine-util",
+    "prepare": "cli-engine-util"
+  },
+  "types": "lib/rxjs.d.ts",
+  "dependencies": {
+    "rxjs": "^5.5.6"
+  }
+}
